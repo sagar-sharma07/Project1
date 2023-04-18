@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'icofont/icofont.min.css' %}">
+	<style type="text/css">
+		.navbar .navbar-nav .nav-link{
+			font-size: 20px;
+		}
+		.Links a{
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		.info h5{
+			margin-bottom: 30px;
+		}
+	</style>
+</head>
+<body>
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: coral;">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-1" href="{% url 'index' %}"><h1><i class="icofont-fork-and-knife"></i>FOOD</h1></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'gallery' %}">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'blogs' %}">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'aboutus' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'contactus' %}">Contact Us</a>
+        </li>
+        </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+		{% if request.session.userid %}
+
+		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="{% url 'myprofile' %}"><i class="icofont-user"></i></a>
+		  </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"><i class="icofont-logout"></i></a>
+        </li>
+
+		{% else %}
+
+		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+		  </li>
+		{% endif %}
+      </ul>
+        
+    </div>
+  </div>
+</nav>
+
+
+{% block content %}
+
+<!-- Page content -->
+
+{% endblock %}
+
+<div class="container-fluid p-5 bg-secondary text-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<h3><i class="icofont-fork-and-knife"></i>food</h3>
+				<p class="me-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				
+			</div>
+			<div class="col-4 Links">
+				<h3>Important Links</h3>
+				<div class="row">
+					<div class="col-6">
+
+						<a href="{% url 'index' %}">Home</a><br><br>
+						<a href="{% url 'gallery' %}">Gallery</a><br><br>
+						<a href="{% url 'blogs' %}">Blogs</a><br><br>
+						
+					</div>
+					<div class="col-6">
+
+						<a href="{% url 'contactus' %}">Contact Us</a><br><br>
+						<a href="{% url 'aboutus' %}">About us</a><br><br>
+						<a href="{% url 'login' %}">Login</a><br><br>
+						<a href="{% url 'getdirections' %}">Get Directions</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-4 info">
+				<h3 class="mb-4">Contact Information</h3>
+
+				<h5><i class="icofont-location-pin"></i>xyz city,Building Abc,India</h5>
+				<h5><i class="icofont-phone"></i>+91 7973190815</h5>
+				<h5><i class="icofont-email"></i>xyz@gmail.com</h5>
+				
+			</div>
+			
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
+

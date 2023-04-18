@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container p-5 text-center">
+        <h4><i class="icofont-user icofont-3x"></i></h4>
+
+
+        <h5 class="text-center">Name: {{myprofile.name}}</h5>
+        <h5 class="text-center">Email Id: {{myprofile.email}}</h5>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

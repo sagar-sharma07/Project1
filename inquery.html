@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<table class="m-5" align="center" border="10" width="80%"> 
+    <tr>
+        <th colspan="3">User Details</th>
+    </tr>
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        
+    </tr>
+    {% for x in inquery %}
+    <tr>
+        <td>{{x.username}}</td>
+        <td>{{x.email}}</td>
+        <td>{{x.message}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

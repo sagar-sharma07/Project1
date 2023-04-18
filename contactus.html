@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid p-5" style="background-image: url({% static 'images/image3.jpg' %}); background-size: cover;">
+	<div class="container">
+		<div class="row">
+			<div class="col-6 border-end bg-dark text-light p-5 bg-opacity-75">
+				<h1 class="text-center mb-5">CONTACT US</h1>
+				<form method="POST">
+					{% csrf_token %}
+
+					<label>Name</label>
+					<input type="text" required name="username" class="form-control mb-4">
+					
+					<label>Email Address</label>
+					<input type="email" required name="user_email" class="form-control mb-4">
+
+					<label>Message</label>
+					<textarea name="message" required class="form-control mb-4"></textarea>
+
+					<div class="text-center">
+						<button type="submit" class="btn text-light" style="background-color: coral">SUBMIT</button>
+						
+					</div>
+					
+				</form>
+			</div>
+
+			<div class="col-6 bg-dark text-light p-3 bg-opacity-75 ml-3"><br>
+				<h1 class="text-center mb-5">Contact Information</h1>
+
+				<h2 class="text-center"><i class="icofont-location-pin"></i>xyz city,Building Abc,India</h2>
+				<h2 class="text-center"><i class="icofont-phone"></i>+91 7973190815</h2>
+				<h2 class="text-center"><i class="icofont-email"></i>xyz@gmail.com</h2>
+				
+			</div>
+				  
+				
+		</div>
+		
+	</div>
+	
+</div>
+
+{% if response == 1 %}
+<script>
+	alert('Message sent')
+</script>}
+{% endif %}
+
+
+{% endblock %}
+				

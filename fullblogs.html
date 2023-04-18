@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid p-5">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">{{abc.title}}</h1>
+
+                <img src="{{abc.image.url}}" width="100%"/>
+
+                <p>{{abc.description}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock%}

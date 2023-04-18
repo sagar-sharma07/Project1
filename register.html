@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}	
+
+<div class="container-fluid p-5" style="background-image: url({% static 'images/image3.jpg'%}); background-size: cover;">
+	<div class="container">
+		<div class="row">
+			<div class="col-4"></div>
+			<div class="col-4 bg-dark text-light p-3 bg-opacity-75">
+				<h1 class="text-center mb-5">REGISTER FORM</h1>
+				<form method="POST">
+					{% csrf_token %}
+
+					<label>Name</label>
+					<input type="text" required name="username" class="form-control mb-4">
+					
+					<label>Email Address</label>
+					<input type="email" required name="user_email" class="form-control mb-4">
+
+					<label>Password</label>
+					<input type="password" required name="user_password" class="form-control mb-4">
+					<label> Confirm Password</label>
+					<input type="password" required name="cpassword" class="form-control mb-4">
+
+					<div class="text-center">
+						<button type="submit" class="btn text-light" style="background-color: coral">SUBMIT</button><br><br>
+						<a href="{% url 'login' %}" class="text-light" style="text-decoration: none;">Already have an account?</a>
+					</div>
+				</form>
+			</div>
+			<div class="col-4"></div>
+				  
+			
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+{% if response == 1 %}
+<script> 
+	alert('Password does not match')
+</script>
+
+{% elif response == 2 %}
+<script> 
+	alert('Email id already exists')
+</script>
+{% elif response == 3 %}
+<script> 
+	alert('Successfully registered')
+</script>
+
+{% endif %}
+{% endblock %}
+
